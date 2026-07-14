@@ -65,7 +65,19 @@ a { color: inherit; }
   font-size: 1.05rem;
 }
 
-.brand-mark { font-size: 1.3rem; line-height: 1; }
+.brand-mark {
+  display: inline-flex;
+  line-height: 1;
+}
+
+.brand-mark span {
+  font-size: 1.3rem;
+  display: inline-block;
+}
+
+.brand-mark span:not(:first-child) {
+  margin-left: -0.55rem;
+}
 
 .nav-cta {
   text-decoration: none;

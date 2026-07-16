@@ -219,6 +219,36 @@ a { color: inherit; }
   margin-bottom: 0.75rem;
 }
 
+.app-card-live {
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  text-decoration: none;
+  color: var(--fg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.app-card-live:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -12px var(--accent);
+}
+
+.app-card-live .app-card-icon {
+  font-size: 1.4rem;
+}
+
+.app-card-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 0.35rem;
+  color: var(--fg);
+}
+
+.app-card-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+}
+
 .footer {
   border-top: 1px solid var(--border);
   padding: 2rem 1.5rem;

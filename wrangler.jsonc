@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "3pandalabs-website",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    { "pattern": "3pandalabs.com", "custom_domain": true },
+    { "pattern": "www.3pandalabs.com", "custom_domain": true }
+  ]
+}

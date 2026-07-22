@@ -3,11 +3,13 @@
 3PandaLabs org landing page ("home base") — links out to shipped apps. Public repo, part of the entry-point/index-repo tier in the org's repo convention (product code lives in separate repos, e.g. `nrighar`, `receiptcash`).
 
 ## Stack
-Static site, no build step, no framework, no package.json. Two files:
-- `index.html` — full page markup (nav, hero, apps grid, footer)
-- `styles.css` — all styling, CSS custom properties in `:root` for theme (light/dark via `prefers-color-scheme`)
+Static site, no build step, no framework, no package.json. Two files, both inside `public/` (this is the Cloudflare Workers assets directory — do not add files at repo root, they won't be served):
+- `public/index.html` — full page markup (nav, hero, apps grid, footer)
+- `public/styles.css` — all styling, CSS custom properties in `:root` for theme (light/dark via `prefers-color-scheme`)
 
-Deployed on Vercel (`.vercel/project.json` links it — do not need to read that file, it's just the project/org ID pairing).
+**Deployed on Cloudflare Workers** (migrated off Vercel 2026-07-22 — `.vercel/project.json` is stale, the Vercel project is a decommission-candidate, not deleted). `wrangler.jsonc` configures a zero-JS static-assets Worker with `custom_domain` routes for both `3pandalabs.com` and `www.3pandalabs.com`. Deploy with `npx wrangler deploy` from repo root — no build step needed, just uploads whatever's in `public/`.
+
+**Gotcha (hit 2026-07-22): don't point Wrangler's `assets.directory` at the repo root.** It has no built-in respect for `.gitignore`, and a `.assetsignore` file didn't reliably exclude everything either — the first deploy attempt uploaded the entire `.git` directory (objects, refs, hooks) as publicly-servable static assets. Caught before going live (never got a working custom domain until this was fixed) by checking asset count during deploy — 155 files for a 2-file site is an obvious tell. Keeping site content in its own `public/` folder sidesteps the whole class of bug.
 
 ## Conventions
 - Brand wordmark: `3PandaLabs` — one word, camelCase, exactly as it appears in `<title>`, `.brand-name`, footer. Never "3PandA Labs" or with a space.

@@ -18,7 +18,7 @@ Static site, no build step, no framework, no package.json. Two files, both insid
 - Accent color: `--accent: #2f7a4f` (light) / `#4fbf7d` (dark).
 
 ## Apps grid
-The `.app-grid` in `index.html` is the canonical list of shipped/upcoming apps — update it when a new product ships. Currently: ReceiptCash (`receiptcash.3pandalabs.com`), NRIGhar (`nrighar.3pandalabs.com`), one placeholder slot.
+The `.app-grid` in `index.html` is the canonical list of shipped/upcoming apps — update it when a new product ships. Currently: ReceiptCash (`receiptcash.3pandalabs.com`), RentVault (`nrighar.3pandalabs.com` — host still uses the old name, see the `nrighar` repo's CLAUDE.md), one placeholder slot.
 
 ## Editing
 Both files are small enough to read in full when making changes — no partial-read shortcuts needed. No tests, no lint config, no CI beyond Vercel's own build/deploy on push.

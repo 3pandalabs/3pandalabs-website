@@ -1,9 +1,9 @@
 :root {
-  --bg: #ffffff;
-  --bg-subtle: #f6f6f4;
-  --fg: #16161a;
-  --fg-muted: #5b5b63;
-  --border: #e7e7e3;
+  --bg: #fafafa;
+  --bg-subtle: #f4f4f5;
+  --fg: #18181b;
+  --fg-muted: #52525b;
+  --border: #e4e4e7;
   --accent: #2f7a4f;
   --accent-fg: #ffffff;
   --radius: 14px;
@@ -12,11 +12,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121214;
-    --bg-subtle: #19191c;
-    --fg: #f2f2f0;
-    --fg-muted: #a3a3ab;
-    --border: #2a2a2e;
+    --bg: #000000;
+    --bg-subtle: #18181b;
+    --fg: #fafafa;
+    --fg-muted: #a1a1aa;
+    --border: #3f3f46;
     --accent: #4fbf7d;
     --accent-fg: #0c0c0d;
   }
@@ -30,14 +30,70 @@ html, body {
 }
 
 body {
-  background: var(--bg);
   color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
 a { color: inherit; }
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--bg);
+  pointer-events: none;
+}
+
+.backdrop-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.backdrop-blob-1 {
+  top: -10rem;
+  left: -8rem;
+  width: 32rem;
+  height: 32rem;
+  background: rgba(52, 211, 153, 0.35);
+}
+
+.backdrop-blob-2 {
+  top: -6rem;
+  right: -10rem;
+  width: 28rem;
+  height: 28rem;
+  background: rgba(252, 211, 77, 0.4);
+}
+
+.backdrop-blob-3 {
+  bottom: -14rem;
+  left: 33%;
+  width: 34rem;
+  height: 34rem;
+  background: rgba(110, 231, 183, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  .backdrop-blob-1 { background: rgba(16, 185, 129, 0.2); }
+  .backdrop-blob-2 { background: rgba(245, 158, 11, 0.1); }
+  .backdrop-blob-3 { background: rgba(52, 211, 153, 0.1); }
+}
+
+.backdrop-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: radial-gradient(circle, var(--fg) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .backdrop-grid { opacity: 0.06; }
+}
 
 .nav {
   border-bottom: 1px solid var(--border);
@@ -85,19 +141,6 @@ a { color: inherit; }
 .brand-mark span:nth-child(2) { top: 0.6rem; left: 0.02rem; transform: rotate(-24deg); }
 /* right leg, angled outward, overlapping the apex */
 .brand-mark span:nth-child(3) { top: 0.6rem; left: 1.02rem; transform: rotate(24deg); }
-
-/* crossbar of the A */
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  top: 1.15rem;
-  left: 0.45rem;
-  width: 1.3rem;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 1px;
-  z-index: 3;
-}
 
 .nav-cta {
   text-decoration: none;

@@ -172,11 +172,18 @@ a { color: inherit; }
   font-weight: 650;
 }
 
+/* 52ch rather than 40ch: the hero copy grew from one sentence to two
+   paragraphs, and 40ch turned it into a narrow column several lines deep. */
 .lede {
   font-size: 1.15rem;
   color: var(--fg-muted);
-  max-width: 40ch;
-  margin: 0 0 2.25rem;
+  max-width: 52ch;
+  margin: 0 0 1rem;
+}
+
+/* Paragraph spacing between ledes, but the original gap before the buttons. */
+.lede:last-of-type {
+  margin-bottom: 2.25rem;
 }
 
 .hero-actions {

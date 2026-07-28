@@ -164,13 +164,16 @@ a { color: inherit; }
   margin: 0 auto;
 }
 
-/* Sized down from clamp(2rem, 5vw, 3.2rem). Those values were set for a short
-   two-line headline; the current one is roughly half as long again, so at
-   3.2rem it filled the viewport and swamped everything under it. Line-height
-   eased a touch too — a headline that now wraps needs more room between lines
-   than one broken by hand. */
+/* Sized down twice from the original, which was set for a short hand-broken
+   headline half this length and filled the viewport at this one.
+
+   The floor is deliberately well above the section headings' fixed 1.6rem:
+   those don't scale down on narrow screens, so a lower minimum here would make
+   "What we're building" bigger than the page's own headline on a phone. That
+   constraint, not taste, is what stops this going smaller — dropping the
+   section headings too would free it up. */
 .hero h1 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-size: clamp(1.7rem, 3.4vw, 2.1rem);
   line-height: 1.18;
   margin: 0 0 1.25rem;
   letter-spacing: -0.02em;

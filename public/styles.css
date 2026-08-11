@@ -180,6 +180,12 @@ a { color: inherit; }
   font-weight: 650;
 }
 
+/* The headline's two sentences each get their own line at every width. This is
+   what makes the break in the markup's spans real; without it they run on. */
+.hero h1 span {
+  display: block;
+}
+
 /* 52ch rather than 40ch: the hero copy grew from one sentence to two
    paragraphs, and 40ch turned it into a narrow column several lines deep. */
 .lede {

@@ -1,0 +1,11 @@
+# Cloudflare injects its own managed block into the served /robots.txt (the
+# Content-Signal preamble and the AI-crawler Disallow list) and merges it with
+# this file rather than replacing it. After a deploy, confirm the Sitemap line
+# below survives that merge:
+#
+#   curl -s https://3pandalabs.com/robots.txt | grep -i sitemap
+
+User-agent: *
+Allow: /
+
+Sitemap: https://3pandalabs.com/sitemap.xml

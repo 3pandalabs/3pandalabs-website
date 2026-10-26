@@ -3,9 +3,10 @@
 3PandaLabs org landing page ("home base") — links out to shipped apps. Public repo, part of the entry-point/index-repo tier in the org's repo convention (product code lives in separate repos, e.g. `nrighar`, `receiptcash`).
 
 ## Stack
-Static site, no build step, no framework, no package.json. Two files, both inside `public/` (this is the Cloudflare Workers assets directory — do not add files at repo root, they won't be served):
+Static site, no build step, no framework, no package.json. All files live inside `public/` (this is the Cloudflare Workers assets directory — do not add files at repo root, they won't be served):
 - `public/index.html` — full page markup (nav, hero, apps grid, footer)
 - `public/styles.css` — all styling, CSS custom properties in `:root` for theme (light/dark via `prefers-color-scheme`)
+- `public/robots.txt` and `public/sitemap.xml` — hand-written, no generator. Cloudflare merges its own managed block into the served `robots.txt`, so verify the `Sitemap:` line survives after a deploy. The sitemap exists because this page is the only inbound link to most of the org's app subdomains: it being crawled is what makes them discoverable at all.
 
 **Deployed on Cloudflare Workers** (migrated off Vercel 2026-07-22 — `.vercel/project.json` is stale, the Vercel project is a decommission-candidate, not deleted). `wrangler.jsonc` configures a zero-JS static-assets Worker with `custom_domain` routes for both `3pandalabs.com` and `www.3pandalabs.com`. Deploy with `npx wrangler deploy` from repo root — no build step needed, just uploads whatever's in `public/`.
 
@@ -18,7 +19,9 @@ Static site, no build step, no framework, no package.json. Two files, both insid
 - Accent color: `--accent: #2f7a4f` (light) / `#4fbf7d` (dark).
 
 ## Apps grid
-The `.app-grid` in `index.html` is the canonical list of shipped/upcoming apps — update it when a new product ships. Currently: RentVault (live, `nrighar.3pandalabs.com` — host still uses the old name, see the `nrighar` repo's CLAUDE.md), ReceiptCash (coming soon), one placeholder slot.
+The `.app-grid` in `index.html` is the canonical list of shipped/upcoming apps — update it when a new product ships. Currently: RentVault (live, `nrighar.3pandalabs.com` — host still uses the old name, see the `nrighar` repo's CLAUDE.md), ReceiptCash (coming soon), RsvpVault (live, `rsvpvault.3pandalabs.com` — unlike RentVault this host *was* renamed to match the product, because a domain spelling a name the site never used could not be found in search), MealMargin (coming soon).
+
+When a card's href changes, it is not just a link: this page is the main discovery path to the app subdomains, so a stale href points search engines at a hostname that no longer serves the site.
 
 Card states: a live app is an `<a class="app-card app-card-live">`; a not-yet-public one is a plain `<div class="app-card">` with no href, so the grid never links to something that isn't ready. Status is shown by a `.app-card-badge` in the title — `Beta` uses the filled accent style, `Coming soon` adds `.app-card-badge-soon` for the outlined muted style. Drop the badge entirely once an app is generally available.
 

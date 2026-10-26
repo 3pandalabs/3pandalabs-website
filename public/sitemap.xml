@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- One URL, because the site is one page. It exists so Search Console has
+     something to submit: this page is the only inbound link to most of the
+     org's app subdomains, so it being crawled is what makes them discoverable
+     in turn. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://3pandalabs.com/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

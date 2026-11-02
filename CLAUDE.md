@@ -19,7 +19,7 @@ Static site, no build step, no framework, no package.json. All files live inside
 - Accent color: `--accent: #2f7a4f` (light) / `#4fbf7d` (dark).
 
 ## Apps grid
-The `.app-grid` in `index.html` is the canonical list of shipped/upcoming apps — update it when a new product ships. Currently: RentVault (live, `nrighar.3pandalabs.com` — host still uses the old name, see the `nrighar` repo's CLAUDE.md), ReceiptCash (coming soon), RsvpVault (live, `rsvpvault.3pandalabs.com` — unlike RentVault this host *was* renamed to match the product, because a domain spelling a name the site never used could not be found in search), MealMargin (coming soon).
+The `.app-grid` in `index.html` is the canonical list of shipped/upcoming apps — update it when a new product ships. Currently: RentVault (live, `nrighar.3pandalabs.com` — host still uses the old name, see the `nrighar` repo's CLAUDE.md), ReceiptCash (coming soon), RsvpVault (live, `rsvpvault.3pandalabs.com` — unlike RentVault this host *was* renamed to match the product, because a domain spelling a name the site never used could not be found in search), MealMargin (coming soon), BorrowVault (coming soon — `borrowvault.3pandalabs.com` is up but pre-launch, so the card stays an unlinked `<div>` until launch).
 
 When a card's href changes, it is not just a link: this page is the main discovery path to the app subdomains, so a stale href points search engines at a hostname that no longer serves the site.
 

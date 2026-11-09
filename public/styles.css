@@ -345,3 +345,11 @@ a { color: inherit; }
 
 .footer-inner a { text-decoration: none; }
 .footer-inner a:hover { color: var(--fg); }
+
+/* App cards with a real logo instead of an emoji. */
+.app-card-icon img {
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.45rem;
+}

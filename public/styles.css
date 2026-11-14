@@ -142,6 +142,21 @@ a { color: inherit; }
 /* right leg, angled outward, overlapping the apex */
 .brand-mark span:nth-child(3) { top: 0.6rem; left: 1.02rem; transform: rotate(24deg); }
 
+/* Wordmark + tagline stacked beside the mark. Tight line-height and a small
+   tagline keep the sticky nav the same height it was with the name alone. */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.005em;
+}
+
 .nav-cta {
   text-decoration: none;
   font-size: 0.9rem;
@@ -172,16 +187,6 @@ a { color: inherit; }
    down — otherwise the section heading would outgrow the page headline on a
    phone. The two move together for that reason; changing one alone
    reintroduces the inversion. */
-/* Brand tagline, above the headline. Accent colour ties it to the LinkedIn
-   cover; kept smaller than the h1 so the headline still leads. */
-.tagline {
-  margin: 0 0 0.75rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: -0.01em;
-}
-
 .hero h1 {
   font-size: clamp(1.5rem, 3vw, 1.9rem);
   line-height: 1.18;

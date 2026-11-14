@@ -142,6 +142,21 @@ a { color: inherit; }
 /* right leg, angled outward, overlapping the apex */
 .brand-mark span:nth-child(3) { top: 0.6rem; left: 1.02rem; transform: rotate(24deg); }
 
+/* Wordmark + tagline stacked beside the mark. Tight line-height and a small
+   tagline keep the sticky nav the same height it was with the name alone. */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.005em;
+}
+
 .nav-cta {
   text-decoration: none;
   font-size: 0.9rem;

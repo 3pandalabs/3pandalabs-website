@@ -27,3 +27,6 @@ Card states: a live app is an `<a class="app-card app-card-live">`; a not-yet-pu
 
 ## Editing
 Both files are small enough to read in full when making changes — no partial-read shortcuts needed. No tests, no lint config, no CI beyond Vercel's own build/deploy on push.
+
+## Contact and legal pages (2026-11-17)
+`public/contact.html`, `terms.html`, `privacy.html`, `refunds.html`, served at `/contact`, `/terms`, `/privacy`, `/refunds` (Workers assets drop the `.html`). They exist because the shared 3PandaLabs Stripe account lists this site as the business website, and Stripe expects contact, terms, privacy and refund pages there. They are company-level umbrellas: each app's own terms/privacy govern that app and are linked from them. Keep them factual: the privacy page says the site has no cookies, analytics or forms, so adding any of those means updating it. **No street address or phone number on these pages** (the founders' home address must stay off public records). Linked from every page's footer and listed in `sitemap.xml`. When an app goes public with its own terms, add it to the app lists in `terms.html` and `privacy.html`.

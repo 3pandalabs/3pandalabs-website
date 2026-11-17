@@ -368,3 +368,19 @@ a { color: inherit; }
   height: 1.75rem;
   border-radius: 0.45rem;
 }
+
+/* Footer legal links (every page) and the legal/contact pages. */
+.footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.footer-links a { color: var(--fg-muted); }
+
+.legal { position: relative; padding: 3rem 1rem 4rem; }
+.legal-inner { max-width: 44rem; margin: 0 auto; line-height: 1.65; }
+.legal h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); letter-spacing: -0.02em; margin: 0 0 0.25rem; }
+.legal h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+.legal p, .legal li { color: var(--fg-muted); }
+.legal strong { color: var(--fg); }
+.legal ul { padding-left: 1.2rem; }
+.legal li { margin: 0.35rem 0; }
+.legal a { color: var(--accent); }
+.legal-updated { font-size: 0.85rem; margin: 0 0 1.5rem; }
+.legal-big { font-size: 1.25rem; font-weight: 600; overflow-wrap: anywhere; }

@@ -1,0 +1,15 @@
+{
+  // Deploy: cd redirects && npx wrangler deploy
+  // The wildcard route needs a hand-made proxied DNS record "* AAAA 100::" in the threepandasite.com zone.
+  "name": "lookalike-redirects",
+  "main": "index.js",
+  "compatibility_date": "2025-01-01",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "threepandalabs.com", "custom_domain": true },
+    { "pattern": "www.threepandalabs.com", "custom_domain": true },
+    { "pattern": "threepandasite.com", "custom_domain": true },
+    { "pattern": "www.threepandasite.com", "custom_domain": true },
+    { "pattern": "*.threepandasite.com/*", "zone_name": "threepandasite.com" }
+  ]
+}

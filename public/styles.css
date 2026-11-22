@@ -371,6 +371,20 @@ a { color: inherit; }
 
 /* Footer legal links (every page) and the legal/contact pages. */
 .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* Copyright row is two separate sentences (brand rule: never merged into one
+   line of copy), kept together as one flex item so the row stays
+   copyright-left / links-right. */
+.footer-copy { display: inline-flex; flex-wrap: wrap; column-gap: 0.3em; }
+
+/* Brand tagline line under the copyright row (brand repo footer/footer.css,
+   DECIDED 2026-11-22: in every footer, not only the nav). */
+.footer-tagline {
+  flex-basis: 100%;
+  margin: 0.25rem 0 0;
+  color: var(--fg-muted);
+  font-size: 0.8rem;
+}
 .footer-links a { color: var(--fg-muted); }
 
 .legal { position: relative; padding: 3rem 1rem 4rem; }

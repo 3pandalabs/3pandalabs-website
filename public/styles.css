@@ -387,7 +387,7 @@ a { color: inherit; }
 }
 .footer-links a { color: var(--fg-muted); }
 
-/* Phone and social icons (every page). */
+/* Social icons (every page). */
 .footer-follow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
 .footer-follow a { color: var(--fg-muted); }
 .footer-follow svg { display: block; }

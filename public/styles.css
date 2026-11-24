@@ -387,6 +387,11 @@ a { color: inherit; }
 }
 .footer-links a { color: var(--fg-muted); }
 
+/* Phone and social icons (every page). */
+.footer-follow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+.footer-follow a { color: var(--fg-muted); }
+.footer-follow svg { display: block; }
+
 .legal { position: relative; padding: 3rem 1rem 4rem; }
 .legal-inner { max-width: 44rem; margin: 0 auto; line-height: 1.65; }
 .legal h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); letter-spacing: -0.02em; margin: 0 0 0.25rem; }

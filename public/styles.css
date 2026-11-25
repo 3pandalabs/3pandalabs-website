@@ -370,12 +370,7 @@ a { color: inherit; }
 }
 
 /* Footer legal links (every page) and the legal/contact pages. */
-.footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
-
-/* Copyright row is two separate sentences (brand rule: never merged into one
-   line of copy), kept together as one flex item so the row stays
-   copyright-left / links-right. */
-.footer-copy { display: inline-flex; flex-wrap: wrap; column-gap: 0.3em; }
+.footer-links { display: flex; flex-wrap: wrap; flex-basis: 100%; gap: 0.5rem 1.25rem; padding-bottom: 0.5rem; }
 
 /* Brand tagline line under the copyright row (brand repo footer/footer.css,
    DECIDED 2026-11-22: in every footer, not only the nav). */
@@ -387,9 +382,10 @@ a { color: inherit; }
 }
 .footer-links a { color: var(--fg-muted); }
 
-/* Phone and social icons (every page). */
-.footer-follow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
-.footer-follow a { color: var(--fg-muted); }
+/* Social icons (every page): own row, right-aligned from 640px, as on AdVault. */
+.footer-follow { display: flex; flex-wrap: wrap; flex-basis: 100%; align-items: center; gap: 0.75rem; padding-bottom: 0.25rem; }
+@media (min-width: 640px) { .footer-follow { justify-content: flex-end; } }
+.footer-follow a { color: var(--fg-muted); padding: 0.25rem; }
 .footer-follow svg { display: block; }
 
 .legal { position: relative; padding: 3rem 1rem 4rem; }

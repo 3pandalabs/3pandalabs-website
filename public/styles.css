@@ -382,9 +382,15 @@ a { color: inherit; }
 }
 .footer-links a { color: var(--fg-muted); }
 
-/* Social icons (every page): own row, right-aligned from 640px, as on AdVault. */
+/* Social icons (every page): under the links on a phone, opposite them from 640px. */
 .footer-follow { display: flex; flex-wrap: wrap; flex-basis: 100%; align-items: center; gap: 0.75rem; padding-bottom: 0.25rem; }
-@media (min-width: 640px) { .footer-follow { justify-content: flex-end; } }
+@media (min-width: 640px) {
+  .footer-inner { display: grid; grid-template-columns: 1fr auto; align-items: center; }
+  .footer-links { padding-bottom: 0; }
+  .footer-follow { padding-bottom: 0; }
+  .footer-follow, .footer-inner > span:last-of-type { justify-self: end; }
+  .footer-tagline { grid-column: 1 / -1; }
+}
 .footer-follow a { color: var(--fg-muted); padding: 0.25rem; }
 .footer-follow svg { display: block; }
 

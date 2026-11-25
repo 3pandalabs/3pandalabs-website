@@ -398,4 +398,6 @@ a { color: inherit; }
 .legal li { margin: 0.35rem 0; }
 .legal a { color: var(--accent); }
 .legal-updated { font-size: 0.85rem; margin: 0 0 1.5rem; }
-.legal-big { font-size: 1.25rem; font-weight: 600; overflow-wrap: anywhere; }
+.contact-card { margin: 1.5rem 0; padding: 1.25rem 1.5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-subtle); display: grid; gap: 1rem; }
+.contact-card dt { color: var(--fg-muted); font-size: 0.85rem; }
+.contact-card dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }

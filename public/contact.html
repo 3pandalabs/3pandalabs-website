@@ -44,7 +44,19 @@
       <h1>Contact us</h1>
       <p class="legal-updated">Last updated 25 November 2026</p>
 
-      <p>3PandaLabs LLC builds and runs the apps listed on our <a href="/">home page</a>. Questions about an app, an account, a charge or a refund? Email or call us.</p>
+      <p>3PandaLabs LLC builds and runs the apps listed on our <a href="/">home page</a>. Questions about an app, an account, a charge or a refund? Send us a message, email or call.</p>
+      <form class="contact-form" id="contact-form" hidden>
+        <div class="contact-row">
+          <div><label for="c-name">Name</label><input id="c-name" name="name" required maxlength="120" autocomplete="name"></div>
+          <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" required maxlength="320" autocomplete="email"></div>
+        </div>
+        <div><label for="c-subject">Subject</label><input id="c-subject" name="subject" required maxlength="150"></div>
+        <div><label for="c-message">Question or feedback</label><textarea id="c-message" name="message" required rows="6" maxlength="4000"></textarea></div>
+        <div class="contact-trap" aria-hidden="true"><label for="c-website">Website</label><input id="c-website" name="website" tabindex="-1" autocomplete="off"></div>
+        <p class="contact-error" id="c-error" role="alert" hidden></p>
+        <div><button class="btn btn-primary" type="submit">Send</button></div>
+      </form>
+      <p class="contact-sent" id="c-sent" role="status" hidden></p>
       <dl class="contact-card">
         <div>
           <dt>Email</dt>
@@ -90,6 +102,7 @@
       <p class="footer-tagline">Built by pandas. Loved by people.</p>
     </div>
   </footer>
+  <script src="/contact.js" defer></script>
   <script src="https://counts.3pandalabs.com/c.js" defer></script>
 </body>
 </html>

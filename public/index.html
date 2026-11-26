@@ -55,23 +55,41 @@
   <main id="top">
     <section class="hero">
       <div class="hero-inner">
-        <!-- One sentence per line, deliberately, at every width. Spans rather
-             than a <br> so the break is a styling decision the CSS owns, and so
-             the space between them survives if the stylesheet never loads —
-             then it degrades to a single readable line instead of a run-on.
-             Each line is short enough not to wrap again at 360px. -->
-        <h1><span>Focused products.</span> <span>Real infrastructure.</span></h1>
-        <p class="lede">
-          3PandaLabs LLC is a USA-registered technology studio. We design, build, and run our own
-          products end to end — mobile apps, web platforms, and the cloud infrastructure
-          underneath them.
-        </p>
-        <p class="lede">
-          This is our home base. Every product we engineer is built, hosted, and linked from here.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#apps">See our products</a>
-          <a class="btn btn-ghost" href="/contact">Get in touch</a>
+        <div class="hero-copy">
+          <!-- One sentence per line, deliberately, at every width. Spans rather
+               than a <br> so the break is a styling decision the CSS owns, and so
+               the space between them survives if the stylesheet never loads —
+               then it degrades to a single readable line instead of a run-on.
+               Each line is short enough not to wrap again at 360px. -->
+          <h1><span>Focused products.</span> <span>Real infrastructure.</span></h1>
+          <p class="lede">
+            3PandaLabs LLC is a USA-registered technology studio. We design, build, and run our own
+            products end to end — mobile apps, web platforms, and the cloud infrastructure
+            underneath them.
+          </p>
+          <p class="lede">
+            This is our home base. Every product we engineer is built, hosted, and linked from here.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#apps">See our products</a>
+            <a class="btn btn-ghost" href="/contact">Get in touch</a>
+          </div>
+        </div>
+        <!-- Decorative "panda lab": three pandas thinking and building, all from
+             emoji + CSS so there is no image asset and nothing to load. Hidden
+             on narrow screens and frozen for reduced-motion users. -->
+        <div class="hero-lab" aria-hidden="true">
+          <div class="lab">
+            <span class="lab-bulb">💡</span>
+            <span class="lab-spark lab-spark-1">✨</span>
+            <span class="lab-spark lab-spark-2">✨</span>
+            <div class="lab-bench">
+              <div class="lab-panda lab-panda-1"><span class="face">🐼</span><span class="prop">🔬</span></div>
+              <div class="lab-panda lab-panda-2"><span class="face">🐼</span><span class="prop lab-beaker">🧪</span></div>
+              <div class="lab-panda lab-panda-3"><span class="face">🐼</span><span class="prop">💻</span></div>
+            </div>
+            <span class="lab-gear">⚙️</span>
+          </div>
         </div>
       </div>
     </section>

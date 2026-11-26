@@ -179,6 +179,130 @@ a { color: inherit; }
   margin: 0 auto;
 }
 
+/* Wide screens: copy on the left, the panda-lab scene fills the empty right. */
+@media (min-width: 900px) {
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
+/* ---- Panda lab (decorative, emoji + CSS only) ---- */
+.hero-lab {
+  display: none;
+}
+@media (min-width: 900px) {
+  .hero-lab {
+    display: block;
+  }
+}
+
+.lab {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--bg-subtle);
+  padding: 2.75rem 1.5rem 2.25rem;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+/* The shared "idea" — a glowing lightbulb that floats and pulses above the bench. */
+.lab-bulb {
+  position: absolute;
+  top: 1.1rem;
+  left: 50%;
+  font-size: 2rem;
+  transform: translateX(-50%);
+  animation: labBulb 2.6s ease-in-out infinite;
+}
+@keyframes labBulb {
+  0%, 100% { transform: translateX(-50%) translateY(0) scale(1); filter: drop-shadow(0 0 2px rgba(255, 205, 70, 0)); }
+  50% { transform: translateX(-50%) translateY(-6px) scale(1.14); filter: drop-shadow(0 0 14px rgba(255, 205, 70, 0.75)); }
+}
+
+/* Three pandas at the bench, each bobbing on its own beat. */
+.lab-bench {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.1rem;
+  margin-top: 3.75rem;
+}
+.lab-panda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  animation: labBob 3s ease-in-out infinite;
+}
+.lab-panda .face { font-size: 2.6rem; line-height: 1; }
+.lab-panda .prop { font-size: 1.35rem; }
+.lab-panda-1 { animation-delay: 0s; }
+.lab-panda-2 { animation-delay: 0.5s; }
+.lab-panda-3 { animation-delay: 1s; }
+@keyframes labBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-2deg); }
+}
+
+/* Bubbles rising out of the middle panda's beaker. */
+.lab-beaker { position: relative; }
+.lab-beaker::before,
+.lab-beaker::after {
+  content: "•";
+  position: absolute;
+  left: 50%;
+  bottom: 75%;
+  color: var(--accent);
+  font-size: 0.7rem;
+  opacity: 0;
+  animation: labBubble 2.2s ease-in infinite;
+}
+.lab-beaker::after { left: 38%; animation-delay: 1.1s; }
+@keyframes labBubble {
+  0% { opacity: 0; transform: translate(-50%, 0) scale(0.5); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -22px) scale(1); }
+}
+
+/* A slowly turning gear and a couple of twinkles for depth. */
+.lab-gear {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.8rem;
+  font-size: 1.4rem;
+  opacity: 0.5;
+  animation: labSpin 7s linear infinite;
+}
+@keyframes labSpin { to { transform: rotate(360deg); } }
+
+.lab-spark {
+  position: absolute;
+  font-size: 0.85rem;
+  opacity: 0;
+  animation: labTwinkle 3s ease-in-out infinite;
+}
+.lab-spark-1 { top: 1.4rem; right: 1.6rem; }
+.lab-spark-2 { bottom: 2.4rem; left: 1.4rem; animation-delay: 1.4s; }
+@keyframes labTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.6); }
+  50% { opacity: 0.9; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-bulb,
+  .lab-panda,
+  .lab-beaker::before,
+  .lab-beaker::after,
+  .lab-gear,
+  .lab-spark { animation: none; }
+  .lab-bulb { transform: translateX(-50%); }
+  .lab-spark { opacity: 0.6; }
+}
+
 /* The page's type scale, smallest the headline has been. Sized down three
    times from the original clamp(2rem, 5vw, 3.2rem), which was set for a short
    hand-broken headline half this length.

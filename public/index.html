@@ -53,28 +53,24 @@
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="hero-inner">
-        <!-- One sentence per line, deliberately, at every width. Spans rather
-             than a <br> so the break is a styling decision the CSS owns, and so
-             the space between them survives if the stylesheet never loads —
-             then it degrades to a single readable line instead of a run-on.
-             Each line is short enough not to wrap again at 360px. -->
-        <h1><span>Focused products.</span> <span>Real infrastructure.</span></h1>
-        <p class="lede">
-          3PandaLabs LLC is a USA-registered technology studio. We design, build, and run our own
-          products end to end — mobile apps, web platforms, and the cloud infrastructure
-          underneath them.
-        </p>
-        <p class="lede">
-          This is our home base. Every product we engineer is built, hosted, and linked from here.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#apps">See our products</a>
-          <a class="btn btn-ghost" href="/contact">Get in touch</a>
-        </div>
-      </div>
-    </section>
+    <!-- Orbit hero (2026-11-26): text left; the panda lab video in the middle of
+         an orbit, live apps (green) on the inner ring, coming-soon apps (amber)
+         on the outer ring. Hover or focus pauses the spin so labels can be
+         clicked. Below 900px it stacks. -->
+    <section class="hx"><div class="hx-in ogrid">
+  <div class="otext">
+    <p class="kicker">USA-based technology studio</p>
+    <h1>Focused products.<br><span class="acc">Real infrastructure.</span></h1>
+    <p class="lede">3PandaLabs LLC is a USA-registered technology studio. We design, build, and run our own products end to end — mobile apps, web platforms, and the cloud infrastructure underneath them.</p>
+    <div class="acts"><a class="btn btn-primary" href="#apps">See our products</a><a class="btn btn-ghost" href="/contact">Get in touch</a></div>
+    <p class="olabel"><i class="dl"></i>Live <i class="ds"></i>Coming soon — tap any app on the orbit</p>
+  </div>
+  <div class="orbit" aria-label="AdVault and SiteVault are live; five more apps are coming soon">
+    <div class="ring r2"><span class="sat " style="--a:36deg"><a class="sat-in" href="#apps" aria-label="RentVault, coming soon">🏠<em>RentVault</em></a></span><span class="sat " style="--a:108deg"><a class="sat-in" href="#apps" aria-label="RsvpVault, coming soon">💌<em>RsvpVault</em></a></span><span class="sat " style="--a:180deg"><a class="sat-in" href="#apps" aria-label="BorrowVault, coming soon"><img src="/borrowvault-icon.png" alt=""><em>BorrowVault</em></a></span><span class="sat " style="--a:252deg"><a class="sat-in" href="#apps" aria-label="TransitVault, coming soon"><img src="/transitvault-icon.svg" alt=""><em>TransitVault</em></a></span><span class="sat " style="--a:324deg"><a class="sat-in" href="#apps" aria-label="SpendVault, coming soon">💳<em>SpendVault</em></a></span></div>
+    <div class="ring r1"><span class="sat big" style="--a:0deg"><a class="sat-in" href="https://advault.3pandalabs.com"><img src="/advault-icon.svg" alt="">AdVault</a></span><span class="sat big" style="--a:180deg"><a class="sat-in" href="https://sitevault.3pandalabs.com">🌐 SiteVault</a></span></div>
+    <div class="core"><video class="lab-video" src="/lab.mp4" poster="/lab-poster.jpg" muted loop playsinline preload="none" width="1280" height="720" aria-label="Three pandas working in a lab: thinking, a eureka moment, building a robot, planning a launch"></video></div>
+  </div>
+</div></section>
 
     <section class="apps" id="apps">
       <div class="section-inner">
@@ -142,6 +138,20 @@
   </footer>
   <div class="soon-toast" id="soon-toast" role="status" aria-live="polite"></div>
   <script>
+    (function () {
+      var v = document.querySelector('.lab-video');
+      if (!v) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+        v.controls = true;
+        return;
+      }
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
+          else v.pause();
+        });
+      }, { threshold: 0.25 }).observe(v);
+    })();
     (function () {
       var toast = document.getElementById('soon-toast'), timer;
       document.querySelectorAll('[data-soon]').forEach(function (card) {

@@ -264,7 +264,7 @@ section.hx:has(.ogrid) { overflow-x: clip; }
 .r2 .sat-in { animation-name: unspin2; }
 @keyframes unspin2 { from { transform: translate(-50%, -50%) rotate(0); } to { transform: translate(-50%, -50%) rotate(360deg); } }
 @media (max-width: 600px) { .orbit { --S: 66vw; margin: 2.5rem auto 3.5rem; } .r2 .sat-in em { display: none; } .sat-in { font-size: .75rem; } }
-@media (min-width: 900px) { .ogrid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem; } .otext h1 { white-space: nowrap; font-size: clamp(2.2rem, 3.6vw, 3.2rem); } section.hx:has(.ogrid) { padding-top: 1rem; padding-bottom: 3.25rem; } .otext h1 { margin-top: .25rem; } }
+@media (min-width: 900px) { .ogrid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem; } .otext h1 { white-space: nowrap; font-size: clamp(2.2rem, 3.6vw, 3.2rem); } section.hx:has(.ogrid) { padding-top: 1rem; padding-bottom: 3.25rem; } .orbit { --S: min(88vw, 700px, calc(100vh - 10.5rem)); margin-top: 2.25rem; } .otext h1 { margin-top: .25rem; } }
 @media (prefers-reduced-motion: reduce) { .ring, .sat-in { animation: none !important; } }
 
 .lab-video {

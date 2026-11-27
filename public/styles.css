@@ -96,10 +96,10 @@ a { color: inherit; }
 }
 
 .nav {
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  background: var(--bg);
+  /* part of the page, not a bar: no fill, no line, scrolls away with the
+     content so nothing (e.g. the top orbit labels) is ever hidden under it */
+  position: relative;
+  background: transparent;
   z-index: 10;
 }
 
@@ -165,6 +165,8 @@ a { color: inherit; }
   padding: 0.5rem 0.9rem;
   border: 1px solid var(--border);
   border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  white-space: nowrap;
 }
 
 .nav-cta:hover { color: var(--fg); border-color: var(--fg-muted); }
@@ -234,11 +236,11 @@ a { color: inherit; }
 section.hx:has(.ogrid) { overflow-x: clip; }
 .otext h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); margin-bottom: 1.25rem; }
 .otext .lede { margin: 0 0 1.75rem; }
-.orbit { --S: min(88vw, 700px, calc(100vh - 9.25rem)); width: var(--S); height: var(--S); position: relative; margin: 0 auto; }
+.orbit { --S: min(88vw, 760px, calc(100vh - 6.5rem)); width: var(--S); height: var(--S); position: relative; margin: 0 auto; }
 .ring { position: absolute; border-radius: 50%; border: 1.5px dashed color-mix(in srgb, var(--accent) 45%, transparent);
   animation: spin 50s linear infinite; }
 .r1 { inset: 7%; } .r2 { inset: -3%; animation-duration: 80s; animation-direction: reverse; border-style: dotted; }
-.core { position: absolute; inset: 18%; border-radius: 50%; overflow: hidden;
+.core { position: absolute; inset: 15%; border-radius: 50%; overflow: hidden;
   box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 20%, transparent), 0 30px 70px -20px rgba(0,0,0,.5); }
 .sat { position: absolute; top: 50%; left: 50%; width: 0; height: 0;
   transform: rotate(var(--a)) translateY(calc(var(--S) * -0.43)) rotate(calc(-1 * var(--a))); }
@@ -263,8 +265,8 @@ section.hx:has(.ogrid) { overflow-x: clip; }
 @keyframes unspin { from { transform: translate(-50%, -50%) rotate(0); } to { transform: translate(-50%, -50%) rotate(-360deg); } }
 .r2 .sat-in { animation-name: unspin2; }
 @keyframes unspin2 { from { transform: translate(-50%, -50%) rotate(0); } to { transform: translate(-50%, -50%) rotate(360deg); } }
-@media (max-width: 600px) { .orbit { --S: 66vw; margin: 2.5rem auto 3.5rem; } .r2 .sat-in em { display: none; } .sat-in { font-size: .75rem; } }
-@media (min-width: 900px) { .ogrid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem; } .otext h1 { white-space: nowrap; font-size: clamp(2.2rem, 3.6vw, 3.2rem); } section.hx:has(.ogrid) { padding-top: 1rem; padding-bottom: 3.25rem; } .otext h1 { margin-top: .25rem; } }
+@media (max-width: 600px) { .orbit { --S: 74vw; margin: 2.5rem auto 3.5rem; } .r2 .sat-in em { display: none; } .sat-in { font-size: .75rem; } }
+@media (min-width: 900px) { .ogrid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem; } .otext h1 { white-space: nowrap; font-size: clamp(2.2rem, 3.6vw, 3.2rem); } section.hx:has(.ogrid) { padding-top: 1rem; padding-bottom: 3.25rem; } .otext h1 { margin-top: 2.25rem; } }
 @media (prefers-reduced-motion: reduce) { .ring, .sat-in { animation: none !important; } }
 
 .lab-video {
